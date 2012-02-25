@@ -19,13 +19,9 @@ class Grid
     (0..@x-1).each do |i|
       (0..@y-1).each do |j|
         cell = @cells[i][j]
-	low_lim_i = i-1
-        low_lim_i = 0 if low_lim_i < 0
-        rows = @cells[low_lim_i..i+1]
-        rows.each do |row|
-          low_lim_j = j-1
-          low_lim_j = 0 if low_lim_j < 0
-          row[low_lim_j..j+1].each do |neighbour|
+        (i-1..i+1).reject { |k| k < 0 or k == @x }.each do |row_i| 
+          (j-1..j+1).reject { |k| k < 0 or k == @y }.each do |row_j|
+            neighbour = @cells[row_i][row_j]
             cell.neighbours << neighbour unless neighbour == nil or neighbour == cell
           end
         end        
