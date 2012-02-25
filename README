@@ -1,0 +1,10 @@
+A Ruby implementation of Conway's Game of Life
+
+Includes tests using Rspec (spec.rb).
+
+Depends on curses
+gem install curses
+
+ruby life.rb
+ruby life.rb rows cols
+ruby life.rb rows cols num_init_pos 
